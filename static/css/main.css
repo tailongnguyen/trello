@@ -1,0 +1,23 @@
+html,
+body,
+.main {
+    height: 100%;
+    width:  100%;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #F9F9F9;
+}
+
+.main {
+    display: table;
+}
+
+form {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.input-group {
+    width: 60%;
+    margin: 0 auto;
+}

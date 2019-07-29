@@ -1,7 +1,14 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import pandas as pd
 import requests
 import json
+
+
+def convert_date(x):
+    if x is None:
+        return None
+
+    return datetime.strptime(x.split(".")[0], '%Y-%m-%dT%H:%M:%S') + timedelta(hours=7)
 
 key = '3cee3147dab5e03add45994b5b88b864'
 token = '7924a454c6c474f402b864006d30be1e2565a5400bd1c588cea8ea9a6d33462f'
@@ -9,7 +16,7 @@ token = '7924a454c6c474f402b864006d30be1e2565a5400bd1c588cea8ea9a6d33462f'
 boardId = 'PHaQzsJc'
 
 url = "https://api.trello.com/1/boards/{}/members".format(boardId)
-response = json.loads(requests.request("GET", url, params={"key":key,"token":token}).content)
+response = json.loads(requests.request("GET", url, params={"key": key,"token": token}).content)
 board_users = {}
 for r in response:
     if 'fullname' in r:
@@ -35,14 +42,21 @@ users = {}
 current_month = datetime.now().month
 formated_date = "{}-{}".format(current_month, datetime.now().year)
 
-for user in list(users.keys()):
-    users[user][current_month] = 0 
-
 for card in done_list['cards']:
-    last_active = card['dateLastActivity'].split(".")[0]
-    date = datetime.strptime(last_active, '%Y-%m-%dT%H:%M:%S')
+    card_id = card['id']
+    print(card_id)
+    url = "https://api.trello.com/1/cards/{}/actions".format(card_id)
+    card_actions = json.loads(requests.request("GET", url, params={"key": key, "token": token, "filter": 'all'}).content)
     
-    if date.month != current_month:
+    for a in card_actions:
+        date = convert_date(a['date'])
+        if a['type'] == 'createCard':
+            created_time = date
+            break
+    try:
+        if created_time.month != datetime.now().month or created_time.year != datetime.now().year:
+            continue
+    except:
         continue
     
     name = card['name']
@@ -53,25 +67,36 @@ for card in done_list['cards']:
     for user_id in card['idMembers']:
         user = board_users[user_id]
         if user not in users:
-            users[user] = {}
-            users[user][formated_date] = []
+            users[user] = []
 
-        users[user][formated_date].append([name, score])
+        users[user].append([name, score])
 
+cards = {}
 for k, v in users.items():
-    print("{}:\t{}".format(k, v))
-        
-with open('visiai.json', 'w') as outfile:
-    json.dump(users, outfile)
+    for card in v:
+        if card[0] not in cards:
+            cards[card[0]] = {
+                'score': card[1],
+                'members': [k]
+            }
+        else:
+            cards[card[0]]['members'].append(k)
 
-# Creating a dictionary  
-d = {'id':['1', '2', '3'], 
-     'Task Name': [], 
-     'Description': [], 
-     'Column 1.3':[1, 4, 5], 
-     'Column 2.1':[1, 2, 3], 
-     'Column 2.2':[10, 10, 10], } 
-  
+    # print("{}:\t{}".format(k, v))
+
+# print(cards)
+tasks = list(cards.keys())
+tmp = {}
+tmp['Task'] = [t.replace('\t', " ") for t in tasks]
+tmp['Điểm'] = [cards[t]['score'] for t in tasks]
+for u in list(users.keys()):
+    tmp[u] = [''] * len(tasks)
+    for i, t in enumerate(tasks):
+        if u in cards[t]['members']:
+            tmp[u][i] = 'x'
+
+
 # Converting dictionary into a data-frame  
-df = pd.DataFrame(d) 
-print(df) 
+df = pd.DataFrame(tmp) 
+df.to_excel('blah.xlsx', encoding='utf-8')
+# print(df) 

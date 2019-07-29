@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trello Work</title>
+
+    <script src={{ url_for('static', filename='js/jquery-3.4.1.js')}}></script>
+    <script src={{ url_for('static', filename='js/popper.min.js')}}></script>
+    <script src={{ url_for('static', filename='js/bootstrap.min.js')}}></script>
+
+    <link rel="stylesheet"  type="text/css" href={{ url_for('static', filename='css/bootstrap.min.css')}}>
+    <link rel="stylesheet"  type="text/css" href={{ url_for('static', filename='css/main.css')}}>
+    <link rel="icon" type="image/png" href={{ url_for('static', filename='imgs/camera.png')}} />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+    <div class="container main">
+            
+        <form>
+            <div id='step-1'>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Key</span>
+                    </div>
+                    <input type="text" id='key' class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Token</span>
+                    </div>
+                    <input type="text" id='token' class="form-control">
+                </div>
+                <hr>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Board ID</span>
+                    </div>
+                    <input type="text" id='board-id' class="form-control">
+                </div>
+            </div>
+            
+            <div id='step-2'>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check-all">
+                    <label class="custom-control-label" for="customCheck">All</label>
+                </div>
+            </div>
+            <button type="submit" id='submit-btn' onclick="clickSubmit()" class="btn btn-primary">Next</button>
+
+        </form>
+
+    </div>
+</body>
+<script>
+    function clickSubmit(){
+        if ($(this).text() == "Next"){
+            $.ajax({
+                type: "GET",
+                url: "http://" + host + ":" + port + "/get-list",
+                success: function (data) {
+                    
+                },
+                error: function(){
+                    alert("Oops! Something wrong happened!");
+                }
+                
+            });
+
+        }
+    }
+
+</script>
+</html>

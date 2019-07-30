@@ -1,188 +1,279 @@
 {
-    "5b30d145ac389f242ee08836": {
-        "7-2019": {
-            "cards": [
-                {
-                    "score": 3,
-                    "name": "task 2 pro 1",
-                    "description": "",
-                    "complete": true,
-                    "change_due_date": [
-                        [
-                            "2019-07-30 12:00:00",
-                            "2019-07-30 12:56:00",
-                            "2019-07-29 19:25:27"
-                        ]
-                    ],
-                    "miss_due_date": [],
-                    "members": [
-                        "5b30d145ac389f242ee08836"
-                    ]
-                }
-            ],
-            "comments": []
-        }
-    },
-    "5c0612f18d97a35966f7620e": {
-        "7-2019": {
-            "cards": [
-                {
-                    "score": 0,
-                    "name": "task 2 pro 2",
-                    "description": "desc\n",
-                    "complete": true,
-                    "change_due_date": [],
-                    "miss_due_date": [],
-                    "members": [
-                        "5a153b68f3be453389dc76d7",
-                        "5c0612f18d97a35966f7620e"
-                    ]
-                },
-                {
-                    "score": 3,
-                    "name": "task 1 pro 3",
-                    "description": "test\n",
-                    "complete": true,
-                    "change_due_date": [],
-                    "miss_due_date": [],
-                    "members": [
-                        "5c0612f18d97a35966f7620e",
-                        "5a5e3b10f8b55e8ab6c0eb44"
-                    ]
-                }
-            ],
-            "comments": []
-        }
-    },
-    "5a5e3b10f8b55e8ab6c0eb44": {
-        "7-2019": {
-            "cards": [
-                {
-                    "score": 3,
-                    "name": "task 1 pro 3",
-                    "description": "test\n",
-                    "complete": true,
-                    "change_due_date": [],
-                    "miss_due_date": [],
-                    "members": [
-                        "5c0612f18d97a35966f7620e",
-                        "5a5e3b10f8b55e8ab6c0eb44"
-                    ]
-                }
-            ],
-            "comments": []
-        }
-    },
-    "5a30d83bc2689b5118b0b878": {
-        "7-2019": {
-            "cards": [],
-            "comments": []
-        }
-    },
-    "5a153b68f3be453389dc76d7": {
-        "7-2019": {
-            "cards": [
-                {
-                    "score": 0,
-                    "name": "task 2 pro 2",
-                    "description": "desc\n",
-                    "complete": true,
-                    "change_due_date": [],
-                    "miss_due_date": [],
-                    "members": [
-                        "5a153b68f3be453389dc76d7",
-                        "5c0612f18d97a35966f7620e"
-                    ]
-                }
-            ],
-            "comments": []
-        }
-    },
-    "552b3fdc73935e0321629c13": {
-        "7-2019": {
-            "cards": [],
-            "comments": []
-        }
-    },
-    "5af050f38c3b5fbdec76cf08": {
-        "7-2019": {
-            "cards": [
-                {
-                    "score": 5,
-                    "name": "task 2 pro 3",
-                    "description": "test\n",
-                    "complete": true,
-                    "change_due_date": [
-                        [
-                            "2019-07-30 12:56:00",
-                            "2019-07-30 23:00:00",
-                            "2019-07-29 21:19:48"
+    "users": {
+        "5b30d145ac389f242ee08836": {
+            "7-2019": {
+                "cards": [
+                    {
+                        "score": 3,
+                        "name": "task 2 pro 1",
+                        "description": "",
+                        "complete": true,
+                        "change_due_date": [
+                            [
+                                "2019-07-30 12:00:00",
+                                "2019-07-30 12:56:00",
+                                "2019-07-29 19:25:27"
+                            ]
                         ],
-                        [
-                            "2019-07-31 12:56:00",
-                            "2019-07-30 12:56:00",
-                            "2019-07-29 21:19:40"
+                        "miss_due_date": [],
+                        "members": [
+                            "5b30d145ac389f242ee08836"
                         ]
-                    ],
-                    "miss_due_date": [],
-                    "members": [
-                        "5af050f38c3b5fbdec76cf08"
-                    ]
-                }
-            ],
-            "comments": []
-        }
-    },
-    "583fa1522b2ece47ace613ab": {
-        "7-2019": {
-            "cards": [
-                {
-                    "score": 2,
-                    "name": "task 1 pro  1",
-                    "description": "card ph\u1ea3i c\u00f3 description m\u1edbi \u0111\u01b0\u1ee3c t\u00ednh \u0111i\u1ec3m\n",
-                    "complete": true,
-                    "change_due_date": [],
-                    "miss_due_date": [],
-                    "members": [
-                        "583fa1522b2ece47ace613ab"
-                    ]
-                },
-                {
-                    "score": 0,
-                    "name": "task 3 pro 3",
-                    "description": "",
-                    "complete": false,
-                    "change_due_date": [],
-                    "miss_due_date": [
-                        [
-                            1
+                    }
+                ],
+                "comments": []
+            }
+        },
+        "5c0612f18d97a35966f7620e": {
+            "7-2019": {
+                "cards": [
+                    {
+                        "score": 0,
+                        "name": "task 2 pro 2",
+                        "description": "desc\n",
+                        "complete": true,
+                        "change_due_date": [],
+                        "miss_due_date": [],
+                        "members": [
+                            "5a153b68f3be453389dc76d7",
+                            "5c0612f18d97a35966f7620e"
                         ]
+                    }
+                ],
+                "comments": []
+            }
+        },
+        "5a5e3b10f8b55e8ab6c0eb44": {
+            "7-2019": {
+                "cards": [],
+                "comments": []
+            }
+        },
+        "5a30d83bc2689b5118b0b878": {
+            "7-2019": {
+                "cards": [],
+                "comments": []
+            }
+        },
+        "5a153b68f3be453389dc76d7": {
+            "7-2019": {
+                "cards": [
+                    {
+                        "score": 0,
+                        "name": "task 2 pro 2",
+                        "description": "desc\n",
+                        "complete": true,
+                        "change_due_date": [],
+                        "miss_due_date": [],
+                        "members": [
+                            "5a153b68f3be453389dc76d7",
+                            "5c0612f18d97a35966f7620e"
+                        ]
+                    }
+                ],
+                "comments": []
+            }
+        },
+        "552b3fdc73935e0321629c13": {
+            "7-2019": {
+                "cards": [],
+                "comments": []
+            }
+        },
+        "5af050f38c3b5fbdec76cf08": {
+            "7-2019": {
+                "cards": [],
+                "comments": []
+            }
+        },
+        "583fa1522b2ece47ace613ab": {
+            "7-2019": {
+                "cards": [
+                    {
+                        "score": 2,
+                        "name": "task 1 pro  1",
+                        "description": "card ph\u1ea3i c\u00f3 description m\u1edbi \u0111\u01b0\u1ee3c t\u00ednh \u0111i\u1ec3m\n",
+                        "complete": true,
+                        "change_due_date": [],
+                        "miss_due_date": [],
+                        "members": [
+                            "583fa1522b2ece47ace613ab"
+                        ]
+                    },
+                    {
+                        "score": 0,
+                        "name": "task 3 pro 3",
+                        "description": "",
+                        "complete": false,
+                        "change_due_date": [],
+                        "miss_due_date": [
+                            [
+                                1
+                            ]
+                        ],
+                        "members": [
+                            "583fa1522b2ece47ace613ab"
+                        ]
+                    }
+                ],
+                "comments": [
+                    [
+                        "5d3ee64c168b1e57056d6074",
+                        "task n\u00e0y b\u1ecb overdue"
                     ],
-                    "members": [
-                        "583fa1522b2ece47ace613ab"
+                    [
+                        "5d3ee56df2327c5f270c72c0",
+                        "comment 1"
+                    ],
+                    [
+                        "5d3ee600ae60d74f3b58d62a",
+                        "complete due date m\u00e0 kh\u00f4ng set labels c\u0169ng kh\u00f4ng c\u00f3 \u0111i\u1ec3m"
                     ]
-                }
-            ],
-            "comments": [
-                [
-                    "5d3ee64c168b1e57056d6074",
-                    "task n\u00e0y b\u1ecb overdue"
-                ],
-                [
-                    "5d3ee56df2327c5f270c72c0",
-                    "comment 1"
-                ],
-                [
-                    "5d3ee600ae60d74f3b58d62a",
-                    "complete due date m\u00e0 kh\u00f4ng set labels c\u0169ng kh\u00f4ng c\u00f3 \u0111i\u1ec3m"
                 ]
-            ]
+            }
+        },
+        "592661d8bf5ceade8506bc41": {
+            "7-2019": {
+                "cards": [],
+                "comments": []
+            }
         }
     },
-    "592661d8bf5ceade8506bc41": {
-        "7-2019": {
-            "cards": [],
-            "comments": []
+    "projects": {
+        "5d3ecd3aba9d4a81bce849f8": {
+            "7-2019": {
+                "cards": [
+                    {
+                        "score": 2,
+                        "name": "task 1 pro  1",
+                        "description": "card ph\u1ea3i c\u00f3 description m\u1edbi \u0111\u01b0\u1ee3c t\u00ednh \u0111i\u1ec3m\n",
+                        "complete": true,
+                        "change_due_date": [],
+                        "miss_due_date": [],
+                        "members": [
+                            "583fa1522b2ece47ace613ab"
+                        ]
+                    },
+                    {
+                        "score": 3,
+                        "name": "task 2 pro 1",
+                        "description": "",
+                        "complete": true,
+                        "change_due_date": [
+                            [
+                                "2019-07-30 12:00:00",
+                                "2019-07-30 12:56:00",
+                                "2019-07-29 19:25:27"
+                            ]
+                        ],
+                        "miss_due_date": [],
+                        "members": [
+                            "5b30d145ac389f242ee08836"
+                        ]
+                    }
+                ],
+                "comments": []
+            }
+        },
+        "5d3ee5552ab6a33ed5d7e746": {
+            "7-2019": {
+                "cards": [
+                    {
+                        "score": 0,
+                        "name": "task 3 pro 3",
+                        "description": "",
+                        "complete": false,
+                        "change_due_date": [],
+                        "miss_due_date": [
+                            [
+                                1
+                            ]
+                        ],
+                        "members": [
+                            "583fa1522b2ece47ace613ab"
+                        ]
+                    },
+                    {
+                        "score": 0,
+                        "name": "task 1 pro 2",
+                        "description": "c\u00f3 description nh\u01b0ng kh\u00f4ng c\u00f3 due date -> coi nh\u01b0 l\u00e0 to-do ",
+                        "complete": false,
+                        "change_due_date": [],
+                        "miss_due_date": [],
+                        "members": []
+                    },
+                    {
+                        "score": 0,
+                        "name": "task 2 pro 2",
+                        "description": "desc\n",
+                        "complete": true,
+                        "change_due_date": [],
+                        "miss_due_date": [],
+                        "members": [
+                            "5a153b68f3be453389dc76d7",
+                            "5c0612f18d97a35966f7620e"
+                        ]
+                    }
+                ],
+                "comments": [
+                    [
+                        "583fa1522b2ece47ace613ab",
+                        "5d3ee64c168b1e57056d6074",
+                        "task n\u00e0y b\u1ecb overdue"
+                    ],
+                    [
+                        "583fa1522b2ece47ace613ab",
+                        "5d3ee56df2327c5f270c72c0",
+                        "comment 1"
+                    ],
+                    [
+                        "583fa1522b2ece47ace613ab",
+                        "5d3ee600ae60d74f3b58d62a",
+                        "complete due date m\u00e0 kh\u00f4ng set labels c\u0169ng kh\u00f4ng c\u00f3 \u0111i\u1ec3m"
+                    ]
+                ]
+            }
+        },
+        "5d3effff4d912b68e545fd44": {
+            "7-2019": {
+                "cards": [
+                    {
+                        "score": 5,
+                        "name": "task 2 pro 3",
+                        "description": "test\n",
+                        "complete": true,
+                        "change_due_date": [
+                            [
+                                "2019-07-30 12:56:00",
+                                "2019-07-30 23:00:00",
+                                "2019-07-29 21:19:48"
+                            ],
+                            [
+                                "2019-07-31 12:56:00",
+                                "2019-07-30 12:56:00",
+                                "2019-07-29 21:19:40"
+                            ]
+                        ],
+                        "miss_due_date": [],
+                        "members": [
+                            "5af050f38c3b5fbdec76cf08"
+                        ]
+                    },
+                    {
+                        "score": 3,
+                        "name": "task 1 pro 3",
+                        "description": "test\n",
+                        "complete": true,
+                        "change_due_date": [],
+                        "miss_due_date": [],
+                        "members": [
+                            "5c0612f18d97a35966f7620e",
+                            "5a5e3b10f8b55e8ab6c0eb44"
+                        ]
+                    }
+                ],
+                "comments": []
+            }
         }
     }
 }

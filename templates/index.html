@@ -21,7 +21,7 @@
 <body>
     <div class="container main">
             
-        <form>
+        <div id='form'>
             <div id='step-1'>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -45,25 +45,102 @@
             </div>
             
             <div id='step-2'>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="check-all">
-                    <label class="custom-control-label" for="customCheck">All</label>
-                </div>
+                
             </div>
-            <button type="submit" id='submit-btn' onclick="clickSubmit()" class="btn btn-primary">Next</button>
+            <button id='submit-btn' onclick="clickSubmit()" class="btn btn-primary">Next</button>
 
-        </form>
+        </div>
 
     </div>
 </body>
 <script>
+    const host = '127.0.0.1';
+    const port = 5050;
+
+    $('#key').on('input',function(e){
+        $("#submit-btn").text('Next');
+        $("#submit-btn").removeClass('btn-success').addClass("btn-primary");
+    });
+
+    $('#token').on('input',function(e){
+        $("#submit-btn").text('Next');
+        $("#submit-btn").removeClass('btn-success').addClass("btn-primary");
+    });
+
+    $('#board-id').on('input',function(e){
+        $("#submit-btn").text('Next');
+        $("#submit-btn").removeClass('btn-success').addClass("btn-primary");
+    });
+
+    const saveData = (function () {
+        const a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        return function (url, fileName) {
+            a.href = url;
+            a.download = fileName;
+            a.click();
+        };
+    }());
+
     function clickSubmit(){
-        if ($(this).text() == "Next"){
+        console.log($("#submit-btn").text());
+        
+        if ($("#submit-btn").text() == "Next"){
             $.ajax({
                 type: "GET",
-                url: "http://" + host + ":" + port + "/get-list",
+                // url: "http://" + host + ":" + port + "/get-list",
+                url: "https://api.trello.com/1/boards/" + $("#board-id").val() + 
+                    "/lists?cards=none&card_fields=all&filter=open&fields=all&key="+
+                    $("#key").val()
+                    + "&token=" +
+                    $("#token").val(),
                 success: function (data) {
+                    $("#step-2").html("");
+
+                    let lists = [
+                        `<div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="check-all">
+                            <label class="custom-control-label" for="check-all">All</label>
+                        </div>`
+                    ]
+                    console.log(data);
                     
+                    data.forEach(element => {
+                        let list = `<div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="` + element['id']  + `">
+                            <label class="custom-control-label" for="` + element['id'] + `">` + element['name'] + 
+                            `</label>
+                        </div>`;
+                        lists.push(list)
+                    });
+                    
+                    lists.forEach(element => {
+                        $("#step-2").append($(element)).show('slow');
+                    });                    
+                
+                    $("#check-all").click(function(){
+                        let boxes = $(".custom-control-input");
+                        console.log(boxes);
+                        
+                        for (let index = 0; index < boxes.length; index++) {
+                            const element = boxes[index];
+                            if (element.id != 'check-all') {
+                                if ($("#check-all").is(':checked')){
+                                    element.checked = true;
+                                }
+                                else {
+                                    element.checked =  false;
+
+                                }
+                            }
+                            
+                        }
+                        
+                    });
+                    
+                    $("#submit-btn").text('Submit');
+                    $("#submit-btn").removeClass('btn-primary').addClass("btn-success");
                 },
                 error: function(){
                     alert("Oops! Something wrong happened!");
@@ -71,6 +148,36 @@
                 
             });
 
+        }
+        else {
+            let lists_ids = [];
+            let boxes = $(".custom-control-input");
+            
+            for (let index = 0; index < boxes.length; index++) {
+                const element = boxes[index];
+                if (element.id != 'check-all') {
+                    if (element.checked){
+                        lists_ids.push(element.id)
+                    }                        
+                }
+                
+            }
+            let url = "http://" + host + ":" + port + "/process/" + lists_ids.join('_') + "-" + $("#key").val() + "-" + $("#token").val() + "-" + $("#board-id").val();
+
+            saveData(url, 'results.xlsx')
+
+            // $.ajax({
+            //     type: "GET",
+            //     url: "http://" + host + ":" + port + "/process/" + lists_ids.join('_') + "-" + $("#key").val() + "-" + $("#token").val() + "-" + $("#board-id").val(),
+            //     success: function (data) {
+            //         saveData("", 'results.xlsx');
+                    
+            //     },
+            //     error: function(){
+            //         alert("Oops! Something wrong happened!");
+            //     }
+                
+            // });
         }
     }
 

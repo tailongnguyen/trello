@@ -12,12 +12,23 @@ body,
     display: table;
 }
 
-form {
+#form {
     display: table-cell;
     vertical-align: middle;
+    text-align: center;
+}
+
+#submit-btn {
+    width: 30%;
+    margin-top: 2%;
 }
 
 .input-group {
     width: 60%;
     margin: 0 auto;
+}
+
+.custom-checkbox {
+    display: inline;
+    margin: 1%;
 }

@@ -2,5 +2,5 @@
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": false,
     "python.linting.enabled": true,
-    "python.pythonPath": "/home/yoshi/anaconda3/envs/dl/bin/python"
+    "python.pythonPath": "C:\\Users\\yoshi\\Anaconda3\\envs\\dl\\python.exe"
 }

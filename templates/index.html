@@ -47,7 +47,10 @@
             <div id='step-2'>
                 
             </div>
+            <br>
             <button id='submit-btn' onclick="clickSubmit()" class="btn btn-primary">Next</button>
+            <br>
+            <div class="lds-roller" style="display: none"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
         </div>
 
@@ -150,6 +153,9 @@
 
         }
         else {
+            $("#submit-btn").attr("disabled", 'true');
+            $(".lds-roller").fadeIn(500);
+            
             let lists_ids = [];
             let boxes = $(".custom-control-input");
             

@@ -99,8 +99,8 @@ def process(lists_ids, key, token, board_id):
 
         if list_id not in lists:
             continue
-        print(list_name, list_id)
 
+        print(list_name, list_id)
         
         if list_name not in projects:
             projects[list_id] = {
@@ -141,7 +141,7 @@ def process(lists_ids, key, token, board_id):
 
             card_info = {
                 'score': score,
-                'name': card['name'],
+                'name': '{}_{}'.format(list_name, card['name']),
                 'description': card['desc'],
                 'complete': card['dueComplete'],
                 'change_due_date': [],
@@ -200,6 +200,9 @@ def process(lists_ids, key, token, board_id):
         for i, t in enumerate(current_month_cards):
             if user_id in current_month_cards[i]['members']:
                 df1[user_name][i] = 'x'
+                if 'Seminar' in current_month_cards[i]['name'] or 'seminar' in current_month_cards[i]['name']:
+                    current_month_cards[i]['description'] = '[seminar]'
+
                 if current_month_cards[i]['complete'] and current_month_cards[i]['description'] != '':
                     total_score += current_month_cards[i]['score']
         df1[user_name] = [total_score] + df1[user_name]
@@ -209,7 +212,11 @@ def process(lists_ids, key, token, board_id):
     }
 
     for user_id, user_data in users.items():
-        user_name = board_users[user_id]
+        try:
+            user_name = board_users[user_id]
+        except KeyError:
+            continue
+
         if user_name in df2:
             user_name = user_name + '(1)'
         
@@ -232,8 +239,13 @@ def process(lists_ids, key, token, board_id):
         '': ['total score', 'change due date', 'miss due date', 'comments']
     }
 
+    print(list(projects.keys()))
     for pro_id, pro_data in projects.items():
-        pro_name = board_projects[pro_id]
+        try:
+            pro_name = board_projects[pro_id]
+        except KeyError:
+            continue
+
         if pro_name in df3:
             pro_name = pro_name + '(1)'
         
